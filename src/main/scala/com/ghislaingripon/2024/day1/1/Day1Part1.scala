@@ -12,7 +12,9 @@ object Day1Part1 {
     val leftList = inputArray.map(_.head).sorted
     val rightList = inputArray.map(_(1)).sorted
 
-    val distance = leftList.zipWithIndex.map(array => Math.abs(array._1 - rightList(array._2))).sum
+    val distance = leftList.zipWithIndex
+      .map(array => Math.abs(array._1 - rightList(array._2)))
+      .sum
 
     distance
   }
