@@ -1,6 +1,6 @@
 package com.ghislaingripon
 
-import com.ghislaingripon.`2024`.day1.InputReader.readInput
+import com.ghislaingripon.utils.InputReader.readInput
 import org.scalatest.funspec.AnyFunSpec
 
 class ReadingInputTest extends AnyFunSpec {

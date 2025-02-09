@@ -1,6 +1,6 @@
 package com.ghislaingripon.`2024`.day1.`1`
 
-import com.ghislaingripon.`2024`.day1.InputReader.{readInput, splitInput}
+import com.ghislaingripon.utils.InputReader.{readInput, splitInput}
 
 object Day1Part1 {
 

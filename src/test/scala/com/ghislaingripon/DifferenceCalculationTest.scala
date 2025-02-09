@@ -1,6 +1,6 @@
 package com.ghislaingripon
 
-import com.ghislaingripon.`2024`.day1.InputReader.{readInput, splitInput}
+import com.ghislaingripon.utils.InputReader.{readInput, splitInput}
 import org.scalatest.funspec.AnyFunSpec
 
 class DifferenceCalculationTest extends AnyFunSpec {
