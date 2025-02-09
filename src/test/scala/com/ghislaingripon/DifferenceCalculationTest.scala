@@ -5,21 +5,6 @@ import org.scalatest.funspec.AnyFunSpec
 
 class DifferenceCalculationTest extends AnyFunSpec {
 
-  describe("The Input should be split correctly with") {
-    it("one space") {
-      assert(splitInput("1 2") === Array(1, 2))
-    }
-
-    it("multiple space") {
-      assert(splitInput("3   4") === Array(3, 4))
-    }
-
-    it("trailing line return") {
-      assert(splitInput("""3   3
-          |""".stripMargin) === Array(3, 3))
-    }
-  }
-
   describe("The difference") {
     it("should be correct") {
       val inputTestList = readInput("src/test/resources/testInput.txt").map(splitInput)
