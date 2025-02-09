@@ -17,5 +17,6 @@ object CmpChain {
   ): Object { def cmp: CmpChain[T] } = new AnyRef {
     def cmp = new CmpChain(true, x)
   }
+
   implicit def rToBoolean[T](cc: CmpChain[T]): Boolean = cc.asBoolean
 }

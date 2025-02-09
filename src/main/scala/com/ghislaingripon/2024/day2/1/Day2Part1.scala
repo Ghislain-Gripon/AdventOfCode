@@ -1,8 +1,11 @@
 package com.ghislaingripon.`2024`.day2.`1`
 
 import com.ghislaingripon.utils.InputReader.{readInput, splitInput}
+import com.ghislaingripon.utils.CmpChain._
 
 import scala.annotation.tailrec
+import scala.language.{implicitConversions, reflectiveCalls}
+import scala.math.abs
 
 object Day2Part1 {
   val result: Int = {
@@ -11,7 +14,7 @@ object Day2Part1 {
       "src/main/resources/2024/day2/1/input/input.txt"
     ).map(splitInput)
 
-
+    inputArray.map(isReportSafe).count(_ == true)
 
   }
 
@@ -20,14 +23,29 @@ object Day2Part1 {
   }
 
   @tailrec
-  def _isReportSafe(report: Array[Int], indices: Int = 0): Boolean = report match {
-      case report if report.length == indices + 1 => true
-      case report if report(indices) > report(indices + 1) > report(indices + 2)  =>
+  def _isReportSafe(report: Array[Int], indices: Int = 0): Boolean =
+    report match {
+      case report if report.length == indices + 3 => true
+      case report
+          if (report.length == 2 & 1.cmp <= abs(
+            abs(report(indices) - report(indices + 1))
+          ) <= 3) =>
+        true
+      case report if report.length == 1 => true
+      case report
+          if report(indices).cmp > report(indices + 1) > report(indices + 2) &
+            1.cmp <= abs(report(indices) - report(indices + 1)) <= abs(
+              abs(report(indices + 1) - report(indices + 2))
+            ) <= 3 =>
+        _isReportSafe(report, indices + 1)
+      case report
+          if report(indices).cmp < report(indices + 1) < report(indices + 2) &
+            1.cmp <= abs(report(indices) - report(indices + 1)) <= abs(
+              abs(report(indices + 1) - report(indices + 2))
+            ) <= 3 =>
+        _isReportSafe(report, indices + 1)
+      case _ => false
 
-
-  }
-
-
-
+    }
 
 }
