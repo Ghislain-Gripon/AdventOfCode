@@ -27,9 +27,9 @@ object Day2Part1 {
     report match {
       case report if report.length == indices + 3 => true
       case report
-          if (report.length == 2 & 1.cmp <= abs(
+          if report.length == 2 & 1.cmp <= abs(
             abs(report(indices) - report(indices + 1))
-          ) <= 3) =>
+          ) <= 3 =>
         true
       case report if report.length == 1 => true
       case report
