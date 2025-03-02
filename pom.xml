@@ -16,10 +16,9 @@
     </licenses>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
         <encoding>UTF-8</encoding>
-        <scala.version>2.13.12</scala.version>
+        <scala.version>2.13.16</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
         <spec2.version>4.2.0</spec2.version>
     </properties>

@@ -1,6 +1,6 @@
 package com.ghislaingripon
 
-import com.ghislaingripon.`2024`.day2.`1`.Day2Part1
+import com.ghislaingripon.`2024`.day2.one.Day2Part1
 
 object App {
 

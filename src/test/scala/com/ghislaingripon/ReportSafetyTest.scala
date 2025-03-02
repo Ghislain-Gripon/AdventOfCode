@@ -1,7 +1,7 @@
 package com.ghislaingripon
 
 import com.ghislaingripon.utils.InputReader.{readInput, splitInput}
-import com.ghislaingripon.`2024`.day2.`1`.Day2Part1.isReportSafe
+import com.ghislaingripon.`2024`.day2.one.Day2Part1.isReportSafe
 
 import org.scalatest.funspec.AnyFunSpec
 

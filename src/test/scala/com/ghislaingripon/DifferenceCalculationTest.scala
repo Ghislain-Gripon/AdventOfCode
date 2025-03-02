@@ -7,12 +7,15 @@ class DifferenceCalculationTest extends AnyFunSpec {
 
   describe("The difference") {
     it("should be correct") {
-      val inputTestList = readInput("src/test/resources/testInput.txt").map(splitInput)
+      val inputTestList =
+        readInput("src/test/resources/2024/day1/testInput.txt").map(splitInput)
 
       val leftList = inputTestList.map(_.head).sorted
       val rightList = inputTestList.map(_(1)).sorted
 
-      val distance = leftList.zipWithIndex.map(array => Math.abs(array._1 - rightList(array._2))).sum
+      val distance = leftList.zipWithIndex
+        .map(array => Math.abs(array._1 - rightList(array._2)))
+        .sum
 
       assert(distance === 11)
     }

@@ -1,33 +1,29 @@
-package com.ghislaingripon.`2024`.day2.`2`
+package com.ghislaingripon.`2024`.day2.one
 
-import com.ghislaingripon.`2024`.day2.`1`.Day2Part1.isReportSafe
-import com.ghislaingripon.utils.CmpChain._
 import com.ghislaingripon.utils.InputReader.{readInput, splitInput}
+import com.ghislaingripon.utils.CmpChain._
 
 import scala.annotation.tailrec
+import scala.language.{implicitConversions, reflectiveCalls}
 import scala.math.abs
 
-object Day2Part2 {
+object Day2Part1 {
   val result: Int = {
+
     val inputArray: List[Array[Int]] = readInput(
-      "src/main/resources/2024/day2/1/input/input.txt"
+      "src/main/resources/2024/day2/one/input/input.txt"
     ).map(splitInput)
 
-    inputArray.map().count(res => res)
+    inputArray.map(isReportSafe).count(res => res)
+
   }
 
-  def isReportSafeWithDampener(report: Array[Int]): Boolean =
-    isReportSafe(report) match {
-      case true  => true
-      case false => _isReportSafeWithDampener()
-    }
-
-  def unsafeTransitions(report: Array[Int]) = {
-
+  def isReportSafe(report: Array[Int]): Boolean = {
+    _isReportSafe(report)
   }
 
   @tailrec
-  def _isReportSafeWithDampener(report: Array[Int], indices: Int = 0): Boolean =
+  def _isReportSafe(report: Array[Int], indices: Int = 0): Boolean =
     report match {
       case report if report.length == 1 => true
       case report
@@ -47,4 +43,5 @@ object Day2Part2 {
         _isReportSafe(report, indices + 1)
       case _ => false
     }
+
 }
