@@ -6,7 +6,7 @@ object InputReader {
 
   def readInput(filePath: String): List[String] = {
     val inputStream: BufferedSource = Source.fromFile(filePath)
-    val lines = inputStream.getLines().toList
+    val lines: List[String] = inputStream.getLines().toList
     inputStream.close()
     lines
   }

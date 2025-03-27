@@ -1,12 +1,9 @@
 package com.ghislaingripon.`2024`.day2.two
 
 import com.ghislaingripon.`2024`.day2.one.Day2Part1.isReportSafe
-import com.ghislaingripon.utils.CmpChain._
 import com.ghislaingripon.utils.InputReader.{readInput, splitInput}
 
-import scala.annotation.tailrec
-import scala.language.reflectiveCalls
-import scala.math.abs
+import scala.language.{postfixOps, reflectiveCalls}
 
 object Day2Part2 {
   val result: Int = {
@@ -14,18 +11,16 @@ object Day2Part2 {
       "src/main/resources/2024/day2/one/input/input.txt"
     ).map(splitInput)
 
-    inputArray.map(isReportSafeWithDampener).count(res => res)
+    inputArray.map(isReportSafeWithDampener).count(identity)
   }
 
   private def isReportSafeWithDampener(report: Array[Int]): Boolean =
-    isReportSafe(report) match {
-      case true  => true
-      case false => _isReportSafeWithDampener(report)
+    if (isReportSafe(report)) {
+      true
+    } else {
+      report.indices map ((i: Int) =>
+        isReportSafe(report.take(i) ++ report.drop(i + 1))
+      ) exists identity
     }
 
-  private def _isReportSafeWithDampener(
-      report: Array[Int]
-  ): Boolean = {
-    ???
-  }
 }
