@@ -4,13 +4,20 @@ import scala.collection.mutable
 
 object Memoization {
 
-  private def cache[P, R]: mutable.HashMap[(P, P => R), R] = mutable.HashMap[(P, P => R), R]()
+  def apply[P, R](f: P => R): P => R = {
+    new Memoization[P, R].memoize(f)
+  }
 
-  def memoize[P, R](f: P => R): P => R = (param: P) =>
-    cache.get((param, f)) match {
-      case Some((value, _)) => value
-      case None        => cache.addOne((param, f), f(param))((param, f))
+}
+
+private class Memoization[P, R] {
+
+  private val cache_map: mutable.HashMap[(P, P => R), R] =
+    mutable.HashMap[(P, P => R), R]()
+
+  private def memoize(f: P => R): P => R = (param: P) =>
+    cache_map.get((param, f)) match {
+      case Some(value) => value
+      case None        => cache_map.addOne((param, f), f(param))((param, f))
     }
-
-
 }
